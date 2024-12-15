@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90sSpotify</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"
+        integrity="sha512-lYMiwcB608+RcqJmP93CMe7b4i9G9QK1RbixsNu4PzMRJMsqr/bUrkXUuFzCNsRUo3IXNUr5hz98lINURv5CNA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="header">
+        <!-- Menu Toggle Button -->
+        <button id="menu-toggle" onclick="toggleMenu()">
+            <span id="menu-icon">&#9776;</span>
+            <span id="close-icon" style="display: none;">&times;</span>
+        </button>
+        <!-- Side Menu -->
+        <div id="side-menu" class="menu">
+            <ul class="menu-list">
+                <li>Account</li>
+                <li>Profile</li>
+                <li>settings</li>
+                <hr>
+                <li>Log out</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="logo">
+        <!-- SPOTIFY -->
+         <img src="logo.png" alt="logo" style="height: 100px;">
+    </div>
+
+    <div class="container">
+        <div class="main">
+            <div class="left">
+                <!-- nav  -->
+                <div class="navbar">
+                    <div class="nav-item" style="background-color: #d1d1d1;">
+                        <h3>Home</h3>
+                    </div>
+                    <div class="nav-item">
+                        <h3><a href="#playlist" style="text-decoration: none; color: black;">Playlist</a></h3>
+                    </div>
+                    <div class="search">
+                        <input type="text" placeholder="ARTIST, MUSIC, OR BROADCAST......">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#000"
+                                d="M6 2h8v2H6zM4 6V4h2v2zm0 8H2V6h2zm2 2H4v-2h2zm8 0v2H6v-2zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2zm0-8h2v8h-2zm0 0V4h-2v2z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- music player  -->
+                <div class="current-play">
+                    <div class="cover">
+                        <img src="https://3.bp.blogspot.com/-JKUjrk3jhPA/VS2aFXr7suI/AAAAAAAAFX0/x7x7LGugfts/s1600/every-breath-you-take-the-police.jpg"
+                            alt="img">
+                    </div>
+                    <div class="player-container">
+                        <!-- Song Details -->
+                        <div class="song-details">
+                            <h4 class="song-title">Every Breath You Take</h4>
+                            <p class="artist">The Police</p>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="progress-bar" id="progress-bar">
+                            <div class="progress" id="progress"></div>
+                            <div class="progress-circle" id="progress-circle"></div>
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="controls">
+                            <div class="icon backward" id="backward">⏮</div>
+                            <div class="icon play" id="play-pause">▶</div>
+                            <div class="icon forward" id="forward">⏭</div>
+                        </div>
+
+                        <!-- Waveform -->
+                        <div class="waveform">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+
+                        <!-- Audio Element -->
+                        <audio id="audio" src="the police.mp3"></audio>
+                    </div>
+
+                    <div class="cd">
+                        <img src="https://static.vecteezy.com/system/resources/previews/009/313/617/original/vinyl-record-vector-illustration-isolated-on-white-background-free-png.png"
+                            alt="cd">
+                    </div>
+                </div>
+
+                <!-- playlist  -->
+                <div class="playlist" id="playlist">
+                    <div class="pl-header">
+                        <div class="sidebar"></div>
+                        <h3>Playlist</h3>
+                        <div class="sidebar"></div>
+                    </div>
+
+                    <div class="song-list">
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>1. Summertime Sadness - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>2. Señorita - Camila Cabello, Shawn Mendes</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>3:10</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>3. Diet Mountain Dew - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>3.43</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>4. lovely - Billie Eilish, Khalid</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>3:20</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>5. No Lie - Sean Paul, Dua Lipa</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>3:41</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>6. Lover - Taylor Swift</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:20</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>7. Astronaut In The Ocean - Masked Wolf</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>8. Summertime Sadness - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>9. Summertime Sadness - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>10. Summertime Sadness - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>11. Summertime Sadness - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>12. Summertime Sadness - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                        <div class="song">
+                            <div class="pt1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                                    <path fill="#000"
+                                        d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z" />
+                                </svg>
+                                <p>13. Summertime Sadness - Lana Del Rey</p>
+                            </div>
+                            <div class="pt2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 256 256">
+                                    <path fill="#000"
+                                        d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
+                                </svg>
+                                <p>4:25</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="library">
+                    <div class="library-header">
+                        <div class="sidebar"></div>
+                        <h3>Your Library</h3>
+                        <div class="sidebar"></div>
+                    </div>
+                    <div class="lists">
+                        <div class="list">
+                            <p><b>Liked Song</b></p>
+                            <div class="subpart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#1DB954"
+                                            d="M20 11.943C20 7.562 16.424 4 12 4s-8 3.562-8 7.943c0 1.19.147 1.955.328 2.516c.122.372.413.005.557-.13a2.5 2.5 0 0 1 3.472.05c1.421 1.412 2.732 3.37.921 5.17c-.972.966-2.436 1.368-3.55.328c-1.438-1.344-2.687-2.908-3.302-4.8C2.17 14.283 2 13.304 2 11.942C2 6.445 6.483 2 12 2s10 4.445 10 9.943c0 1.362-.169 2.341-.426 3.133c-.615 1.893-1.864 3.457-3.302 4.8c-1.114 1.041-2.578.64-3.55-.327c-1.81-1.8-.5-3.758.92-5.17a2.5 2.5 0 0 1 3.473-.05c.277.26.414.57.557.13c.181-.56.328-1.327.328-2.516" />
+                                    </g>
+                                </svg>
+                                <p>684 songs</p>
+                            </div>
+                        </div>
+                        <div class="list" id="currentplay">
+                            <p><b>All Time Hits : English Vibes</b></p>
+                            <div class="subpart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#1DB954"
+                                            d="M20 11.943C20 7.562 16.424 4 12 4s-8 3.562-8 7.943c0 1.19.147 1.955.328 2.516c.122.372.413.005.557-.13a2.5 2.5 0 0 1 3.472.05c1.421 1.412 2.732 3.37.921 5.17c-.972.966-2.436 1.368-3.55.328c-1.438-1.344-2.687-2.908-3.302-4.8C2.17 14.283 2 13.304 2 11.942C2 6.445 6.483 2 12 2s10 4.445 10 9.943c0 1.362-.169 2.341-.426 3.133c-.615 1.893-1.864 3.457-3.302 4.8c-1.114 1.041-2.578.64-3.55-.327c-1.81-1.8-.5-3.758.92-5.17a2.5 2.5 0 0 1 3.473-.05c.277.26.414.57.557.13c.181-.56.328-1.327.328-2.516" />
+                                    </g>
+                                </svg>
+                                <p>55 songs</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 16 16">
+                                    <path fill="none" stroke="#1DB954" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M1.75 5.75v4.5h2.5l4 3V2.75l-4 3zm9 .5s1 .5 1 1.75s-1 1.75-1 1.75m1-6.5c2 1 3 2.5 3 4.75s-1 3.75-3 4.75" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="list">
+                            <p><b>Study Mix</b></p>
+                            <div class="subpart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#1DB954"
+                                            d="M20 11.943C20 7.562 16.424 4 12 4s-8 3.562-8 7.943c0 1.19.147 1.955.328 2.516c.122.372.413.005.557-.13a2.5 2.5 0 0 1 3.472.05c1.421 1.412 2.732 3.37.921 5.17c-.972.966-2.436 1.368-3.55.328c-1.438-1.344-2.687-2.908-3.302-4.8C2.17 14.283 2 13.304 2 11.942C2 6.445 6.483 2 12 2s10 4.445 10 9.943c0 1.362-.169 2.341-.426 3.133c-.615 1.893-1.864 3.457-3.302 4.8c-1.114 1.041-2.578.64-3.55-.327c-1.81-1.8-.5-3.758.92-5.17a2.5 2.5 0 0 1 3.473-.05c.277.26.414.57.557.13c.181-.56.328-1.327.328-2.516" />
+                                    </g>
+                                </svg>
+                                <p>21 songs</p>
+                            </div>
+                        </div>
+                        <div class="list">
+                            <p><b>Workout Mix</b></p>
+                            <div class="subpart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#1DB954"
+                                            d="M20 11.943C20 7.562 16.424 4 12 4s-8 3.562-8 7.943c0 1.19.147 1.955.328 2.516c.122.372.413.005.557-.13a2.5 2.5 0 0 1 3.472.05c1.421 1.412 2.732 3.37.921 5.17c-.972.966-2.436 1.368-3.55.328c-1.438-1.344-2.687-2.908-3.302-4.8C2.17 14.283 2 13.304 2 11.942C2 6.445 6.483 2 12 2s10 4.445 10 9.943c0 1.362-.169 2.341-.426 3.133c-.615 1.893-1.864 3.457-3.302 4.8c-1.114 1.041-2.578.64-3.55-.327c-1.81-1.8-.5-3.758.92-5.17a2.5 2.5 0 0 1 3.473-.05c.277.26.414.57.557.13c.181-.56.328-1.327.328-2.516" />
+                                    </g>
+                                </svg>
+                                <p>30 songs</p>
+                            </div>
+                        </div>
+                        <div class="list">
+                            <p><b>Chill Lo-fi Beat</b></p>
+                            <div class="subpart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#1DB954"
+                                            d="M20 11.943C20 7.562 16.424 4 12 4s-8 3.562-8 7.943c0 1.19.147 1.955.328 2.516c.122.372.413.005.557-.13a2.5 2.5 0 0 1 3.472.05c1.421 1.412 2.732 3.37.921 5.17c-.972.966-2.436 1.368-3.55.328c-1.438-1.344-2.687-2.908-3.302-4.8C2.17 14.283 2 13.304 2 11.942C2 6.445 6.483 2 12 2s10 4.445 10 9.943c0 1.362-.169 2.341-.426 3.133c-.615 1.893-1.864 3.457-3.302 4.8c-1.114 1.041-2.578.64-3.55-.327c-1.81-1.8-.5-3.758.92-5.17a2.5 2.5 0 0 1 3.473-.05c.277.26.414.57.557.13c.181-.56.328-1.327.328-2.516" />
+                                    </g>
+                                </svg>
+                                <p>43 songs</p>
+                            </div>
+                        </div>
+                        <div class="list">
+                            <p><b>K-Pop</b></p>
+                            <div class="subpart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                    <g fill="none">
+                                        <path
+                                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#1DB954"
+                                            d="M20 11.943C20 7.562 16.424 4 12 4s-8 3.562-8 7.943c0 1.19.147 1.955.328 2.516c.122.372.413.005.557-.13a2.5 2.5 0 0 1 3.472.05c1.421 1.412 2.732 3.37.921 5.17c-.972.966-2.436 1.368-3.55.328c-1.438-1.344-2.687-2.908-3.302-4.8C2.17 14.283 2 13.304 2 11.942C2 6.445 6.483 2 12 2s10 4.445 10 9.943c0 1.362-.169 2.341-.426 3.133c-.615 1.893-1.864 3.457-3.302 4.8c-1.114 1.041-2.578.64-3.55-.327c-1.81-1.8-.5-3.758.92-5.17a2.5 2.5 0 0 1 3.473-.05c.277.26.414.57.557.13c.181-.56.328-1.327.328-2.516" />
+                                    </g>
+                                </svg>
+                                <p>753 songs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="top-success">
+                    <div class="success-header">
+                        <div class="sidebar"></div>
+                        <h3>Top Success</h3>
+                        <div class="sidebar"></div>
+                    </div>
+
+                    <div class="albums">
+                        <div class="album-1">
+                            <div class="album">
+                                <img src="https://img.discogs.com/nKG1S9noV_CGw2Zk6Cvzh8PS76g=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6019300-1553970409-7551.bmp.jpg"
+                                    alt="img" style="height: 80px; width: 80px;">
+                                <div class="down">
+                                    <div class="description">
+                                        <p style="font-size: 10px; color: white;"><b>My Heart Will Go On</b></p>
+                                        <p style="font-size: 8px; color: white;">Céline Dion</p>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 48 48">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="0">
+                                            <path fill="#1DB954" stroke="#1DB954"
+                                                d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" />
+                                            <path fill="#000" stroke="#1DB954"
+                                                d="M20 24V17.0718L26 20.5359L32 24L26 27.4641L20 30.9282V24Z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="album">
+                                <img src="https://th.bing.com/th/id/OIP.2rRzpHmA8BDlqH1aMW26wgHaHa?w=188&h=187&c=7&r=0&o=5&dpr=1.6&pid=1.7"
+                                    alt="img" style="height: 80px; width: 80px;">
+                                <div class="down">
+                                    <div class="description">
+                                        <p style="font-size: 10px; color: white;"><b>U Can't Touch This</b></p>
+                                        <p style="font-size: 8px; color: white;">MC Hammer</p>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 48 48">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="0">
+                                            <path fill="#1DB954" stroke="#1DB954"
+                                                d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" />
+                                            <path fill="#000" stroke="#1DB954"
+                                                d="M20 24V17.0718L26 20.5359L32 24L26 27.4641L20 30.9282V24Z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="album">
+                                <img src="https://th.bing.com/th/id/OIP.3z0nNi39xm3FDWkwHR0uVwHaHa?rs=1&pid=ImgDetMain"
+                                    alt="img" style="height: 80px; width: 80px;">
+                                <div class="down">
+                                    <div class="description">
+                                        <p style="font-size: 10px; color: white;"><b>Gangsta’s Paradise</b></p>
+                                        <p style="font-size: 8px; color: white;">Coolio</p>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 48 48">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="0">
+                                            <path fill="#1DB954" stroke="#1DB954"
+                                                d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" />
+                                            <path fill="#000" stroke="#1DB954"
+                                                d="M20 24V17.0718L26 20.5359L32 24L26 27.4641L20 30.9282V24Z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="album-1">
+                            <div class="album">
+                                <img src="https://th.bing.com/th/id/OIP.Fx_5BKgGkw97ct-uWio1UwAAAA?rs=1&pid=ImgDetMain"
+                                    alt="img" style="height: 80px; width: 80px;">
+                                <div class="down">
+                                    <div class="description">
+                                        <p style="font-size: 10px; color: white;"><b>Wannabe</b></p>
+                                        <p style="font-size: 8px; color: white;">Spice Girls</p>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 48 48">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="0">
+                                            <path fill="#1DB954" stroke="#1DB954"
+                                                d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" />
+                                            <path fill="#000" stroke="#1DB954"
+                                                d="M20 24V17.0718L26 20.5359L32 24L26 27.4641L20 30.9282V24Z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="album">
+                                <img src="https://m.media-amazon.com/images/M/MV5BNjEyYTIxZGEtZGUzNS00NGUxLTllZWQtYjM3MzBkMzUxNDJjXkEyXkFqcGdeQXVyNjE0ODc0MDc@._V1_FMjpg_UX1000_.jpg"
+                                    alt="img" style="height: 80px; width: 80px;">
+                                <div class="down">
+                                    <div class="description">
+                                        <p style="font-size: 10px; color: white;"><b>Thank You</b></p>
+                                        <p style="font-size: 8px; color: white;">Dido</p>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 48 48">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="0">
+                                            <path fill="#1DB954" stroke="#1DB954"
+                                                d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" />
+                                            <path fill="#000" stroke="#1DB954"
+                                                d="M20 24V17.0718L26 20.5359L32 24L26 27.4641L20 30.9282V24Z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="album">
+                                <img src="https://cdn.smehost.net/michaeljacksoncom-uslegacyprod/wp-content/uploads/2017/04/19921123_HealTheWorld1.jpg"
+                                    alt="img" style="height: 80px; width: 80px;">
+                                <div class="down">
+                                    <div class="description">
+                                        <p style="font-size: 10px; color: white;"><b>Heal The World</b></p>
+                                        <p style="font-size: 7px; color: white;">Michael Jackson</p>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 48 48">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="0">
+                                            <path fill="#1DB954" stroke="#1DB954"
+                                                d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" />
+                                            <path fill="#000" stroke="#1DB954"
+                                                d="M20 24V17.0718L26 20.5359L32 24L26 27.4641L20 30.9282V24Z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Toggle Menu Visibility
+        function toggleMenu() {
+            const menu = document.getElementById("side-menu");
+            const menuIcon = document.getElementById("menu-icon");
+            const closeIcon = document.getElementById("close-icon");
+
+            // Toggle menu active class
+            menu.classList.toggle("active");
+
+            // Show/Hide Menu and Close Icons
+            if (menu.classList.contains("active")) {
+                menuIcon.style.display = "none";
+                closeIcon.style.display = "inline";
+            } else {
+                menuIcon.style.display = "inline";
+                closeIcon.style.display = "none";
+            }
+        }
+
+    </script>
+
+    <script>
+        const audio = document.getElementById("audio");
+        const playPauseBtn = document.getElementById("play-pause");
+        const progressBar = document.getElementById("progress-bar");
+        const progress = document.getElementById("progress");
+        const progressCircle = document.getElementById("progress-circle");
+
+        // Play and Pause functionality
+        playPauseBtn.addEventListener("click", () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = "⏸";
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = "▶";
+            }
+        });
+
+        // Update progress bar as the song plays
+        audio.addEventListener("timeupdate", () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progress.style.width = `${percent}%`;
+            progressCircle.style.left = `${percent}%`;
+        });
+
+        // Seek functionality
+        progressBar.addEventListener("click", (e) => {
+            const barWidth = progressBar.offsetWidth;
+            const clickX = e.offsetX;
+            const seekTime = (clickX / barWidth) * audio.duration;
+            audio.currentTime = seekTime;
+        });
+
+    </script>
+</body>
+
+</html>
