@@ -310,10 +310,29 @@ body{
     padding: 20px;
 }
 
-.cd img{
+
+/* Add rotation animation to the CD image */
+.cd img {
     width: 220px;
     height: 220px;
+    transition: transform 0.2s ease;
+    transform-origin: center center;
 }
+
+/* Rotating animation */
+@keyframes rotateCd {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.cd.rotating img {
+    animation: rotateCd 5s linear infinite;
+}
+
 
 .playlist{
     height: 426px;
@@ -350,6 +369,10 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.active{
+    background-color: #a1a1a1;
 }
 
 .pt1, .pt2{
